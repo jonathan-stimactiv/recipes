@@ -1,0 +1,58 @@
+{
+    "manifests": {
+        "symfony/ai-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Symfony\\AI\\AiBundle\\AiBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                },
+                "post-install-output": [
+                    "  * Choose an inference platform and install the corresponding bridge",
+                    "",
+                    "  * For example <fg=green>OpenAI</> with the <fg=green>symfony/ai-open-ai-platform</> package",
+                    "    or <fg=green>Anthropic</> with the <fg=green>symfony/ai-anthropic-platform</> package"
+                ]
+            },
+            "files": {
+                "config/packages/ai.yaml": {
+                    "contents": [
+                        "ai:",
+                        "    platform:",
+                        "        # Inference Platform configuration",
+                        "        # see https://github.com/symfony/ai/tree/main/src/platform#platform-bridges",
+                        "",
+                        "        # openai:",
+                        "        #    api_key: '%env(OPENAI_API_KEY)%'",
+                        "",
+                        "    agent:",
+                        "        # Agent configuration",
+                        "        # see https://symfony.com/doc/current/ai/bundles/ai-bundle.html",
+                        "",
+                        "        # default:",
+                        "        #    platform: 'ai.platform.openai'",
+                        "        #    model: 'gpt-5-mini'",
+                        "        #    prompt: |",
+                        "        #        You are a pirate and you write funny.",
+                        "        #    tools:",
+                        "        #        - 'Symfony\\AI\\Agent\\Bridge\\Clock\\Clock'",
+                        "",
+                        "    store:",
+                        "        # Store configuration",
+                        "",
+                        "        # chromadb:",
+                        "        #    default:",
+                        "        #        client: 'client.service.id'",
+                        "        #        collection: 'my_collection'",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "2be6ccd77335c2631fdf12d1680649b072efb8ad"
+        }
+    }
+}
